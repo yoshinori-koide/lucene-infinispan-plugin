@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+	default-destroy-method="destroy"
+	default-init-method="afterPropertiesSet"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+>
+	<!-- Lucene search engine -->
+
+	<bean id="com.liferay.portal.search.lucene.LuceneHelperUtil" class="com.liferay.portal.search.lucene33.LuceneHelperUtil">
+		<property name="luceneHelper">
+			<bean class="com.liferay.portal.search.lucene33.LuceneHelperImpl" />
+		</property>
+	</bean>
+	<bean id="com.liferay.portal.kernel.search.BooleanQueryFactory" class="com.liferay.portal.search.lucene33.BooleanQueryFactoryImpl" />
+	<bean id="com.liferay.portal.kernel.search.BooleanQueryFactoryUtil" class="com.liferay.portal.kernel.search.BooleanQueryFactoryUtil">
+		<property name="booleanQueryFactory" ref= "com.liferay.portal.kernel.search.BooleanQueryFactory" />
+	</bean>
+	<bean id="com.liferay.portal.kernel.search.TermQueryFactory" class="com.liferay.portal.search.lucene33.TermQueryFactoryImpl" />
+	<bean id="com.liferay.portal.kernel.search.TermQueryFactoryUtil" class="com.liferay.portal.kernel.search.TermQueryFactoryUtil">
+		<property name="termQueryFactory" ref="com.liferay.portal.kernel.search.TermQueryFactory" />
+	</bean>
+
+	<bean id="com.liferay.portal.search.lucene.IndexSearcher" class="com.liferay.portal.search.lucene33.LuceneIndexSearcherImpl"/>
+	<bean id="com.liferay.portal.search.lucene.IndexWriter" class="com.liferay.portal.search.lucene33.LuceneIndexWriterImpl"/>
+	
+	<bean id="com.liferay.portal.search.lucene.LuceneSearchEngineImpl" class="com.liferay.portal.search.lucene33.LuceneSearchEngineImpl">
+		<property name="searcher" ref="com.liferay.portal.search.lucene.IndexSearcher" />
+		<property name="writer" ref="com.liferay.portal.search.lucene.IndexWriter" />
+	</bean>
+	
+</beans>
