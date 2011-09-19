@@ -1,0 +1,8 @@
+This is Liferay 6.0.x plugin for storing Lucene's index on Infinispan cluster.
+
+::::: CAUTION ::::::
+
+This version is not to support cluster yet. Only for Liferay with Infinispan.
+This means that Infinispan and Liferay run on the same jvm.
+So, if you stop Liferay, then Lucene's index will go out.
+BE CAREFUL!!!
