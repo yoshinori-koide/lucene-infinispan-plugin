@@ -1,5 +1,7 @@
 This is Liferay 6.0.x plugin for storing Lucene's index on Infinispan cluster.
 
+And, Lucene's version up to 3.3.0.
+
 ::::: CAUTION ::::::
 
 This version is not to support cluster yet. Only for Liferay with Infinispan.
